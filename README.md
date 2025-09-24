@@ -6,7 +6,7 @@ Aquí van los resultados y el como lo puedes hacer tú.
 # ¿Cómo se añade un syscall?
 
 Tienes que añadir la implementación del syscall al código fuente del kernel.
-Yo lo he hecho en ModLinuxKernel/linux/kernel/sys.c
+Yo lo he hecho en `ModLinuxKernel/linux/kernel/sys.c`
 
 ```c
 SYSCALL_DEFINE1 (getfreeram, __kernel_ulong_t *, ram)
@@ -31,7 +31,7 @@ SYSCALL_DEFINE1 (getfreeram, __kernel_ulong_t *, ram)
 El código de arriba simplemente obtiene la memoria ram no ocupada a partir de la función si_meminfo.
 
 El código ese por si solo no hace nada, hay que decirle al Kernel que existe ese syscall. Por eso mismo,
-añadimos la siguiente línea en el archivo ModLinuxKernel/linux/arch/x86/entry/syscalls/syscall_64.tbl
+añadimos la siguiente línea en el archivo `ModLinuxKernel/linux/arch/x86/entry/syscalls/syscall_64.tbl`
 
 ```
 470     common  getfreeram              sys_getfreeram
@@ -40,7 +40,7 @@ Es importante que el nombre cuadre con el de la función y que en la cuarta colu
 
 # Compilación
 
-Ahora simplemente hay que compilar. Yo concretamente lo voy a compilar en paquetes .deb para probar el kernel en una
+Ahora simplemente hay que compilar. Yo concretamente lo voy a compilar en paquetes `.deb` para probar el kernel en una
 máquina virtual Debian.
 
 ```bash
