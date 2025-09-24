@@ -11,7 +11,7 @@ print_format:	.asciz "Free ram: %lu bytes\n"
 _start:
 	lea freeram(%rip), %rdi # pasamos un puntero a syscall
 	mov $470, %rax
-	syscall 		 # lamamos al syscall creado
+	syscall 		 # llamamos al syscall creado
 
 	mov freeram(%rip), %rsi  # cargamos el valor para printf
 	movq $print_format, %rdi # el formato en rdi

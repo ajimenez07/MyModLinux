@@ -1,4 +1,3 @@
-#include <sys/syscall.h>
 #include <linux/types.h>
 #include <unistd.h>
 
